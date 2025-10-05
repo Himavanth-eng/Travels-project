@@ -65,7 +65,7 @@ app.listen(port,()=>{
    console.log("Sever started"); 
 });
 // app.get("/",(req,res)=>{
-//     res.send("Hi,I am root");
+//     // res.send("Hi,I am root");
 // });
 app.use(session(sessionOptions));
 app.use(flash());
@@ -88,7 +88,7 @@ app.use((req, res, next) => {
 
 app.use("/listings",listings);
 app.use("/listings/:id/reviews", reviews);
-app.use("/",user);
+app.use("/",listings);
 
 app.use((req, res, next) => {
     res.locals.currUser = req.user;   // make user available to all EJS templates
