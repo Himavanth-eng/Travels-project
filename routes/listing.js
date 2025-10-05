@@ -1,7 +1,7 @@
 const express = require("express"); 
 const router = express.Router();
 const wrapAsync = require("../utils/wrapAsync.js");
-const ExpressError = require("../utils/Expresserror.js");
+const ExpressError = require("../utils/ExpressError.js");
 const Listing = require("../projmodels/listing.js");
 const {isLoggedin, isOwner}=require("../middleware.js");
 const listingController=require("../controllers/listings.js");
