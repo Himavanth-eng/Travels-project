@@ -103,8 +103,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/listings", listings);                      // listing routes
-// app.use("/listings/:listingId/reviews", reviews);
-    // nested reviews (make sure reviews.js has mergeParams: true)
+// Correct nested route
+app.use("/listings/:listingId/reviews", reviews);
 app.use("/", userRoutes);                             // signup/login/logout
 
 // =============================================
@@ -123,6 +123,12 @@ app.use((err, req, res, next) => {
 // SERVER START
 // =============================================
 const port = process.env.PORT || 8080;
+app._router.stack.forEach(r => {
+    if (r.route && r.route.path) {
+        console.log(r.route.path);
+    }
+});
+
 app.listen(port, () => {
     console.log(`✅ Server running on port ${port}`);
 });
