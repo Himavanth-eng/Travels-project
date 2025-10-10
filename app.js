@@ -86,9 +86,10 @@ app.use((req, res, next) => {
 });
 
 
-app.use("/listings",listings);
+app.use("/listings", listings);
 app.use("/listings/:id/reviews", reviews);
-app.use("/",listings);
+app.use("/", user); 
+
 
 app.use((req, res, next) => {
     res.locals.currUser = req.user;   // make user available to all EJS templates
