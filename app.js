@@ -103,6 +103,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/listings", listings);                      // listing routes
+
 // Correct nested route
 app.use("/listings/:listingId/reviews", reviews);
 app.use("/", userRoutes);                             // signup/login/logout
